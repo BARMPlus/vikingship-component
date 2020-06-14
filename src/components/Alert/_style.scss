@@ -1,0 +1,43 @@
+.alert{
+  display: flex;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 10px;
+  color: rgba(0,0,0,.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+  font-feature-settings: 'tnum';
+  position: relative;
+  padding: 8px 15px 8px 37px;
+  word-wrap: break-word;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  &.alert-info{
+    @include alert-style(#e6f7ff, #91d5ff);
+  }
+  &.alert-warning{
+    @include alert-style(#fffbe6, #ffe58f);
+  }
+  &.alert-success{
+    @include alert-style(#f6ffed, #b7eb8f);
+  }
+  &.alert-error{
+    @include alert-style(#fff2f0, #ffccc7);
+  }
+  .alert-title{
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  .alert-close{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: darken(#e6e6e6,20%);
+    cursor: pointer;
+  }
+}

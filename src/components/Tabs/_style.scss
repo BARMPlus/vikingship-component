@@ -1,0 +1,29 @@
+.viking-tabs{
+  margin: 20px 0;
+  .viking-tabs-nav{
+    display: flex;
+    list-style: none;
+    border-bottom: 1px solid ;
+    border-bottom: 1px solid #f0f0f0;
+    .viking-tabs-nav-item{
+      padding: 12px;
+      margin-right: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      &.card-item{
+        border-top: 1px solid #f0f0f0;
+        border-left: 1px solid #f0f0f0;
+        border-right: 1px solid #f0f0f0;
+      }
+      &.active{
+        color: $link-color;
+      }
+      &.disabled{
+        color:$gray-600;
+      }
+    }
+  }
+  .tab-view{
+
+  }
+}
