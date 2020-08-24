@@ -1,9 +1,15 @@
 import React from 'react'
 import {render, fireEvent,wait, cleanup, RenderResult} from '@testing-library/react'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faAngleDown} from '@fortawesome/free-solid-svg-icons'
+
 
 import Menu, {MenuProps} from './menu'
 import SubMenu from './subMenu'
 import MenuItem from './menuItem'
+
+
+library.add(faAngleDown)
 
 const testProps: MenuProps = {
   defaultIndex: '0',
@@ -80,8 +86,7 @@ describe('test Menu and MenuItem component', () => {
     expect(menuElement).toHaveClass('menu-vertical')
   })
   it('检测 subMenu horizontal是否正常', async () => {
-    expect(wrapper.queryByText('drop1')).toBeInTheDocument()
-    expect(wrapper.queryByText('drop1')).not.toBeVisible()
+    expect(wrapper.queryByText('drop1')).not.toBeInTheDocument()
     const dropdownElement=wrapper.getByText('dropdown')
     fireEvent.mouseEnter(dropdownElement)
     await wait(()=>{

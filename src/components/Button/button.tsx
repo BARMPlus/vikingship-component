@@ -1,5 +1,6 @@
-import React from 'react'
+import React, {FC, ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes} from 'react'
 import classNames from 'classnames'
+
 
 export enum ButtonSize {
   Large = 'lg',
@@ -13,23 +14,31 @@ export enum ButtonType {
   Link = 'link'
 }
 
+type testValType = 'a'|'b'|'c'
 export interface BaseButtonProps {
   className?: string
+  /**设置 Button 的禁用*/
   disabled?: boolean
-  size?: ButtonSize
-  btnType?: ButtonType
-  children?: React.ReactNode
+  /**设置 Button 的尺寸*/
+  size?: ButtonSize | any
+  /**设置 Button 的类型*/
+  btnType?: ButtonType | any
+  children?: ReactNode
   href?: string
+  testVal?:testValType
 }
 
-type NativeButtonProps=BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
-type AnchorButtonProps=BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
-export type ButtonProps=Partial<NativeButtonProps & AnchorButtonProps>
+type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
 
-const Button: React.FC<ButtonProps> = (props) => {
-  const {btnType,className, disabled, size, children, href,...restProps} = props
+/**
+ * 这是我们的第一个 Button 组件
+ */
+export const Button: FC<ButtonProps> = (props) => {
+  const {btnType, className, disabled, size, children, href, ...restProps} = props
   //btn，btn-lg，btn-primary
-  const classes = classNames('btn',className, {
+  const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     'disabled': (btnType === ButtonType.Link) && disabled
@@ -38,7 +47,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     return (
       <a className={classes}
          href={href}
-        {...restProps}
+         {...restProps}
       >
         {children}
       </a>
@@ -54,9 +63,10 @@ const Button: React.FC<ButtonProps> = (props) => {
     )
   }
 }
-Button.defaultProps={
-  disabled:false,
-  btnType:ButtonType.Default
+
+Button.defaultProps = {
+  disabled: false,
+  btnType: ButtonType.Default
 }
 
-export default Button
+export default Button;

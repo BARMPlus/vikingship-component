@@ -1,7 +1,6 @@
 import React from 'react'
-import {render,fireEvent,cleanup,RenderResult} from '@testing-library/react'
-import Alert from './alert'
-import {AlertProps} from './alert'
+import {render,fireEvent,cleanup,wait,RenderResult} from '@testing-library/react'
+import Alert,{AlertProps} from './alert'
 
 let testProps:AlertProps ={
   closeBtn:false,
@@ -13,7 +12,6 @@ let testProps:AlertProps ={
 let wrapper: RenderResult
 
 describe('alert组件单元测试',()=>{
-
 
   beforeEach(()=>{
     wrapper=render(<Alert>content</Alert>)
@@ -38,12 +36,14 @@ describe('alert组件单元测试',()=>{
     expect(element.querySelector('.alert-close')).not.toBeInTheDocument()
   })
 
-  it('点击关闭按钮-测试',()=>{
+  it('点击关闭按钮-测试',async ()=>{
     const element:HTMLElement=wrapper.getByText('content')
     const closeBtn=element.querySelector('.alert-close') as HTMLElement
     expect(closeBtn).toBeInTheDocument()
     fireEvent.click(closeBtn)
-    expect(element).not.toBeInTheDocument()
+    await wait(()=>{
+      expect(element).not.toBeInTheDocument()
+    })
   })
 
 })

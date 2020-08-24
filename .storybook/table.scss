@@ -1,0 +1,17 @@
+.info-table, .info-table td, .info-table th {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  color: #444;
+  margin-top: .25rem;
+  padding-right: .5rem;
+  padding: .25rem;
+  text-align: left;
+  vertical-align: top;
+}
+.info-table {
+  width: 100%;
+}
+.info-table-monospace {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: .88em;
+}
