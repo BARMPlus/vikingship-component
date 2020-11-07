@@ -38,8 +38,8 @@ let wrapper: RenderResult,
   menuElement: HTMLElement, activeElement: HTMLElement,
   disabledElement: HTMLElement
 
-const createStyleFile=()=>{
-  const cssFile:string=`
+const createStyleFile = () => {
+  const cssFile: string = `
    .viking-submenu{
      display:none;
    }
@@ -47,9 +47,9 @@ const createStyleFile=()=>{
      display:block;
    }
   `
-  const style=document.createElement('style')
-  style.type='text/css'
-  style.innerHTML=cssFile
+  const style = document.createElement('style')
+  style.type = 'text/css'
+  style.innerHTML = cssFile
   return style
 }
 
