@@ -2,6 +2,7 @@
 
 /viking-dist
 /viking-static
+/storybook-static
 
 .idea
 # dependencies
