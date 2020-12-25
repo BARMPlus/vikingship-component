@@ -9,7 +9,7 @@ export default {
 
 
 export const defaultButton = () => (
-  <Button onClick={action('clicked')}>default button</Button>
+  <Button onClick={action('clicked')}>default button Test</Button>
 )
 
 

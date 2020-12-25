@@ -1,0 +1,11 @@
+.viking-uploader-dragger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 200px;
+  border: 2px dashed #eee;
+  &.is-dragover {
+    border-color: #17a2b8;
+  }
+}

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Button, {ButtonSize, ButtonType} from './components/Button/button'
 import Alert from './components/Alert/alert'
+import Dragger from './components/Dragger/dragger'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
@@ -29,6 +30,9 @@ function App () {
   return (
     <div className="App">
       <header className="App-header">
+        <Dragger onFile={(files)=>{console.log('dragger',files)}}>
+          <div>Dragger</div>
+        </Dragger>
         <Upload action="http://jsonplaceholder.typicode.com/posts" />
         {/* <Tabs onSelect={(index)=>{console.log('select',index)}} mode='card' defaultIndex={2}>
           <TabItem label='选项卡1'>内容1</TabItem>

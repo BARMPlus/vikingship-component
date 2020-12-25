@@ -4,6 +4,7 @@ library.add(fas)
 
 export { default as Alert } from './Alert'
 export { default as Button } from './Button'
+export { default as Dragger } from './Dragger'
 export { default as Icon } from './Icon'
 export { default as Input } from './Input'
 export { default as Menu } from './Menu'
